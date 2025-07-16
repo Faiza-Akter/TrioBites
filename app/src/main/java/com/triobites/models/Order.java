@@ -12,7 +12,6 @@ public class Order {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
-
     private String dishName;
     private int quantity;
 
@@ -28,7 +27,12 @@ public class Order {
         this.totalAmount = totalAmount;
     }
 
-    // Getters & Setters
+    // ✅ Add this method
+    public int calculateTotal() {
+        return totalAmount;
+    }
+
+    // Getters and Setters
     public int getId() { return id; }
     public String getDishName() { return dishName; }
     public int getQuantity() { return quantity; }
