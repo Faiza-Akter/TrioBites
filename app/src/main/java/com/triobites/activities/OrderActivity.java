@@ -48,9 +48,13 @@ public class OrderActivity extends AppCompatActivity {
         placeOrderButton.setOnClickListener((View v) -> {
             Dish selectedDish = (Dish) dishSpinner.getSelectedItem();
             int quantity = (int) quantitySpinner.getSelectedItem();
-            Order order = new Order(selectedDish, quantity, new Date());
+
+            int totalAmount = selectedDish.getPrice() * quantity;
+
+            Order order = new Order(selectedDish.getName(), quantity, new Date(), totalAmount);
             AppDatabase.getInstance(this).orderDao().insertOrder(order);
             Toast.makeText(this, "Order placed successfully!", Toast.LENGTH_SHORT).show();
         });
+
     }
 }
