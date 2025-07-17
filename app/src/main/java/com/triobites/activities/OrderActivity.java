@@ -1,9 +1,9 @@
 package com.triobites.activities;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -16,12 +16,11 @@ import com.triobites.models.Order;
 
 import java.util.Date;
 import java.util.List;
-import android.widget.NumberPicker;
-
 
 public class OrderActivity extends AppCompatActivity {
 
-    private Spinner dishSpinner, quantitySpinner;
+    private Spinner dishSpinner;
+    private NumberPicker quantityPicker;
     private Button placeOrderButton;
 
     @Override
@@ -30,26 +29,20 @@ public class OrderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_order);
 
         dishSpinner = findViewById(R.id.dishSpinner);
-        NumberPicker quantityPicker = findViewById(R.id.quantityPicker);
+        quantityPicker = findViewById(R.id.quantityPicker);
+        placeOrderButton = findViewById(R.id.btnPlaceOrder);
+
         quantityPicker.setMinValue(1);
         quantityPicker.setMaxValue(10);
-        Button placeOrderButton = findViewById(R.id.btnPlaceOrder);
 
         List<Dish> dishList = AppDatabase.getInstance(this).dishDao().getAllDishes();
-        ArrayAdapter<Dish> dishAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dishList);
+        ArrayAdapter<Dish> dishAdapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, dishList);
         dishAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         dishSpinner.setAdapter(dishAdapter);
 
-        Integer[] quantities = new Integer[10];
-        for (int i = 0; i < 10; i++) {
-            quantities[i] = i + 1;
-        }
 
-        ArrayAdapter<Integer> quantityAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, quantities);
-        quantityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        quantitySpinner.setAdapter(quantityAdapter);
-
-        placeOrderButton.setOnClickListener((View v) -> {
+        placeOrderButton.setOnClickListener(v -> {
             Dish selectedDish = (Dish) dishSpinner.getSelectedItem();
             int quantity = quantityPicker.getValue();
 
@@ -59,6 +52,5 @@ public class OrderActivity extends AppCompatActivity {
             AppDatabase.getInstance(this).orderDao().insertOrder(order);
             Toast.makeText(this, "Order placed successfully!", Toast.LENGTH_SHORT).show();
         });
-
     }
 }
