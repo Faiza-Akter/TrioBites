@@ -46,9 +46,9 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
 
         public CustomerViewHolder(@NonNull View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.customerName);
-            phone = itemView.findViewById(R.id.customerPhone);
-            address = itemView.findViewById(R.id.customerAddress);
+            name = itemView.findViewById(R.id.tvCustomerName);
+            phone = itemView.findViewById(R.id.tvCustomerPhone);
+            address = itemView.findViewById(R.id.tvCustomerAddress);
         }
     }
 }

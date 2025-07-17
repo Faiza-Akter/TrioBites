@@ -12,15 +12,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TrioBites"
         tools:targetApi="31">
+
+        <!-- Launcher Activity -->
         <activity
-            android:name=".MainActivity"
+            android:name="com.triobites.activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Other Activities -->
+        <activity android:name="com.triobites.activities.LoginActivity" />
+        <activity android:name="com.triobites.activities.MenuActivity" />
+        <activity android:name="com.triobites.activities.OrderActivity" />
+        <activity android:name="com.triobites.activities.BillingActivity" />
+        <activity android:name="com.triobites.activities.CustomerInfoActivity" />
+
     </application>
 
 </manifest>

@@ -46,9 +46,9 @@ public class DishAdapter extends RecyclerView.Adapter<DishAdapter.ViewHolder> {
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.dishName);
-            category = itemView.findViewById(R.id.dishCategory);
-            price = itemView.findViewById(R.id.dishPrice);
+            name = itemView.findViewById(R.id.tvDishName);
+            category = itemView.findViewById(R.id.tvDishCategory);
+            price = itemView.findViewById(R.id.tvDishPrice);
         }
     }
 }

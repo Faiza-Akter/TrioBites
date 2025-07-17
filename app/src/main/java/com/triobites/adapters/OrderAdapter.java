@@ -34,11 +34,12 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
     @Override
     public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
         Order order = orders.get(position);
-        holder.dishTextView.setText(order.getDish().getName());
+        holder.dishTextView.setText(order.getDishName());
         holder.quantityTextView.setText("Qty: " + order.getQuantity());
         holder.dateTextView.setText("Date: " + new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(order.getOrderDate()));
-        holder.totalTextView.setText("Total: " + order.calculateTotal() + " BDT");
+        holder.totalTextView.setText("Total: " + order.getTotalAmount() + " BDT");
     }
+
 
     @Override
     public int getItemCount() {
@@ -50,10 +51,10 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
 
         public OrderViewHolder(@NonNull View itemView) {
             super(itemView);
-            dishTextView = itemView.findViewById(R.id.dishNameTextView);
-            quantityTextView = itemView.findViewById(R.id.quantityTextView);
-            dateTextView = itemView.findViewById(R.id.dateTextView);
-            totalTextView = itemView.findViewById(R.id.totalTextView);
+            dishTextView = itemView.findViewById(R.id.tvOrderDish);
+            quantityTextView = itemView.findViewById(R.id.tvOrderQuantity);
+            dateTextView = itemView.findViewById(R.id.tvOrderDate);
+            totalTextView = itemView.findViewById(R.id.tvOrderTotal);
         }
     }
 }

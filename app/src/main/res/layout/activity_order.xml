@@ -28,12 +28,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <NumberPicker
+    <android.widget.NumberPicker
         android:id="@+id/quantityPicker"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minValue="1"
-        android:maxValue="10" />
+        android:layout_height="wrap_content" />
+
 
     <Button
         android:id="@+id/btnPlaceOrder"

@@ -27,10 +27,11 @@ public class CustomerInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_info);
 
-        nameEditText = findViewById(R.id.nameEditText);
-        phoneEditText = findViewById(R.id.phoneEditText);
-        addressEditText = findViewById(R.id.addressEditText);
-        saveCustomerButton = findViewById(R.id.saveCustomerButton);
+        nameEditText = findViewById(R.id.etName);
+        phoneEditText = findViewById(R.id.etPhone);
+        addressEditText = findViewById(R.id.etAddress);
+        saveCustomerButton = findViewById(R.id.btnSaveInfo);
+
         customerRecyclerView = findViewById(R.id.customerRecyclerView);
 
         customerRecyclerView.setLayoutManager(new LinearLayoutManager(this));

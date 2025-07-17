@@ -19,7 +19,7 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        menuRecyclerView = findViewById(R.id.menuRecyclerView);
+        menuRecyclerView = findViewById(R.id.dishRecyclerView);
         menuRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         DishAdapter adapter = new DishAdapter(AppDatabase.getInstance(this).dishDao().getAllDishes());

@@ -17,10 +17,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        menuButton = findViewById(R.id.menuButton);
-        orderButton = findViewById(R.id.orderButton);
-        billingButton = findViewById(R.id.billingButton);
-        customerInfoButton = findViewById(R.id.customerInfoButton);
+        menuButton = findViewById(R.id.btnMenu);
+        orderButton = findViewById(R.id.btnOrder);
+        billingButton = findViewById(R.id.btnBilling);
+        customerInfoButton = findViewById(R.id.btnCustomerInfo);
 
         menuButton.setOnClickListener(v -> startActivity(new Intent(this, MenuActivity.class)));
         orderButton.setOnClickListener(v -> startActivity(new Intent(this, OrderActivity.class)));

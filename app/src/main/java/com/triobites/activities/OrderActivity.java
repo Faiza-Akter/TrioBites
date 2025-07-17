@@ -16,6 +16,8 @@ import com.triobites.models.Order;
 
 import java.util.Date;
 import java.util.List;
+import android.widget.NumberPicker;
+
 
 public class OrderActivity extends AppCompatActivity {
 
@@ -28,8 +30,10 @@ public class OrderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_order);
 
         dishSpinner = findViewById(R.id.dishSpinner);
-        quantitySpinner = findViewById(R.id.quantitySpinner);
-        placeOrderButton = findViewById(R.id.placeOrderButton);
+        NumberPicker quantityPicker = findViewById(R.id.quantityPicker);
+        quantityPicker.setMinValue(1);
+        quantityPicker.setMaxValue(10);
+        Button placeOrderButton = findViewById(R.id.btnPlaceOrder);
 
         List<Dish> dishList = AppDatabase.getInstance(this).dishDao().getAllDishes();
         ArrayAdapter<Dish> dishAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dishList);
@@ -47,7 +51,7 @@ public class OrderActivity extends AppCompatActivity {
 
         placeOrderButton.setOnClickListener((View v) -> {
             Dish selectedDish = (Dish) dishSpinner.getSelectedItem();
-            int quantity = (int) quantitySpinner.getSelectedItem();
+            int quantity = quantityPicker.getValue();
 
             int totalAmount = selectedDish.getPrice() * quantity;
 
