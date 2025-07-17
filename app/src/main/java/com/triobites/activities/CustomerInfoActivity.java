@@ -22,6 +22,8 @@ public class CustomerInfoActivity extends AppCompatActivity {
     private Button saveCustomerButton;
     private RecyclerView customerRecyclerView;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
